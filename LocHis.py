@@ -36,15 +36,6 @@ with open('LocOutput.csv', 'w', newline='') as csvfile:
    for rtime, rcoords in records.items():
        record_writer.writerow([rtime,rcoords[0], rcoords[1]])
 
-# Open URL in a new tab, if a browser window is already open.
-# def read_csv_loc(csv_file):
-#     rectable = []
-#     with open(csv_file, 'r', newline='') as recfile:
-#         reader = csv.reader(recfile)
-#         for row in reader:
-#             rectable.append(row)
-#     return rectable
-
 #Finding the average location over the specified year
 def average_loc(loc_dic, year):
     lonav, latav, count = 0,0,0
@@ -61,8 +52,6 @@ def average_loc(loc_dic, year):
 # Open URL in new window, locating the coords location.
 def open_gmaps(coords):
     url = 'https://www.google.com/maps/search/?api=1&query={},{}'.format(coords[0],coords[1])
-    # url = 'http://maps.google.com/maps?q={},{}'.format(coords[0],coords[1])
-    # url = 'https://www.google.ca/maps/@{},{}z'.format(coords[0],coords[1])
     webbrowser.open_new(url)
 
 my_av = average_loc(records, 2018)
